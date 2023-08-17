@@ -1,0 +1,2 @@
+This file ensures that `img` folder will be added to the project.
+The `index.html` uses these images to publish websites.
