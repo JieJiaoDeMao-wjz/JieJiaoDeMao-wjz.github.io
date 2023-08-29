@@ -275,7 +275,7 @@
       index++;
       setTimeout(() => {
         逐字输出(text, index, container, callback);
-      }, 1000 / 20); // 每个字符的输出间隔时间为 1000ms / 固定速度（8字/秒）
+      }, 1000 / 60);//草泥马，速度在这里
     } else {
       container.innerHTML += '<br>'; // 文字输出完成后换行
       callback(); // 调用回调函数，在段落输出完成后继续输出下一个段落
