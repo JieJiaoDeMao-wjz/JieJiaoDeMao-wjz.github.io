@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+background-color: white;
+}
+
+    .text {
+        font-size: 48px;
+        color: red;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .loading {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+
+    @keyframes spin {
+        0% { transform: translate(-50%, -50%) rotate(0deg); }
+        100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .text2 {
+        font-size: 24px;
+        color: white;
+        text-align: center;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .text3 {
+        font-size: 48px;
+        color: white;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+
+    @keyframes fadeOut {
+        0% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+</style>
+</head>
+<body>
+<div id="text1" class="text"><strong>LAST WARNING</strong><br>You are about to monitor and operate a REAL nuclear plant. The author is not responsible for any possible damage.</div>
+<div id="loading" class="loading"></div>
+<div id="text2" class="text2">Text2</div>
+<div id="text3" class="text3">Success: you are connected to nuclear plant<br><strong>Fukushima Nuclear Power Plant #03, Japan.</strong><br>Wish you have a good time.</div>
+
+<script>
+    setTimeout(function(){
+        var text1 = document.getElementById("text1");
+        text1.style.opacity = 0;
+        setTimeout(function(){
+                document.body.style.backgroundColor = "black";
+        }, 500);
+
+        var loading = document.getElementById("loading");
+        loading.style.opacity = 1;
+        
+        var text2 = document.getElementById("text2");
+        text2.style.opacity = 1;
+        
+        setTimeout(function(){
+            loading.style.opacity = 0;
+            text2.style.opacity = 0;
+            
+            var text3 = document.getElementById("text3");
+            text3.style.opacity = 1;
+            
+            setTimeout(function(){
+                text3.style.opacity = 0;
+                window.location.href = "./main/";
+            }, 5000);
+        }, Math.floor(Math.random() * 6000) + 10000);
+    }, 3000);
+</script>
+</body>
+</html>
