@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>世界末日倒计时</title>
+    <style>
+        body {
+            background-color: black;
+            color: #f00;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            font-size: 24px;
+        }
+        #countdown {
+            font-size: 48px;
+            margin-top: 20px;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>当前时间</h1>
+    <div id="current-time"></div>
+
+    <h1>距离世界末日还有</h1>
+    <div id="countdown"></div>
+    <HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="80%" color=#f00 SIZE=3>
+    <p> &nbsp;&nbsp;&nbsp;&nbsp;我写下这段话的时候，我们身处于一个紧张而重要的时刻。在2023年9月11日的8点46分40秒，人类将面临着世界末日的降临。这是一个不幸的消息，我很抱歉，但我相信我们需要勇敢面对这个残酷的事实。这个世界曾经是我们的家园，我们在这里共同生活、繁衍和努力。然而，无论我们曾经多么辛勤地捍卫和保护这个星球，命运还是对我们开了一个无情的玩笑。现在，我们面临的是一场无法避免的崩溃，人类文明即将走向终点。这并不是一个时候去责怪或者归咎于任何人或者任何事情。事实上，我们不能改变过去，也不能逆转现在。然而，我们可以选择以一种更加勇敢和有尊严的方式迎接这个世界末日。在这最后的时刻，让我们团结起来，用我们的爱和关怀彼此相待。我们或许无法挽救这个世界，但我们可以在末日来临之前，尽可能地创造一些美好的回忆。让我们相互倾诉，相互拥抱，抓住这最后的时光，让我们的心充满和平和宽容。请记住，在黑暗中仍然有光明。无论我们面临多大的绝望，还是有希望的余地。或许这是我们的终结，但这也是新的开始。让我们对未来充满希望，对未来的人类充满期待。尽管我们将不再存在，但我们的精神将永远留在这个世界上。最后，我想对你表达我对你的深深的敬意和感激之情。你们是如此勇敢，如此坚强，一直以来都在努力为这个世界创造美好。尽管我们将面对终结，但我们的努力和奋斗将永远被铭记。愿你们在最后的时刻感受到爱与和平，愿你们的心灵在黑暗中找到光明。我们与你同在。<br>
+        永远怀念，<br>
+        人类的一员</p>
+
+    <script>
+        var endOfWorld = new Date("2024/09/11 8:46:40").getTime();
+
+        function updateCountdown() {
+            var currentTime = new Date().getTime();
+            var timeRemaining = endOfWorld - currentTime;
+
+            var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+            var milliseconds = timeRemaining % 1000;
+
+            document.getElementById("current-time").innerHTML = new Date().toLocaleString("en-US", { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', fractionalSecondDigits: 3 });
+
+            document.getElementById("countdown").innerHTML = days + "天 " + hours + "小时 " + minutes + "分钟 " + seconds + "." + milliseconds + "秒";
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000 / 360);
+    </script>
+</body>
+</html>
